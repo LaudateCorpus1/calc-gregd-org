@@ -1,0 +1,31 @@
+  body {
+    scrollbar-arrow-color: 555555;
+    scrollbar-base-color: gray;
+    scrollbar-dark-shadow-color: gray;
+    scrollbar-track-color: CCCCCC;
+    scrollbar-face-color: gray;
+    scrollbar-shadow-color: black;
+    scrollbar-highlight-color: silver;
+    scrollbar-3d-light-color: silver;
+  }
+   
+  a:hover {
+    color:#90EE90;
+	background-color:transparent;
+  }
+
+  a.menu {
+    color:Gold;
+    background-color:transparent;
+    font-weight:bold;
+    font-family:monospace;
+    text-decoration:none;
+  }
+	
+  a.menu:hover {
+    color:Yellow;
+  }
+  
+  H1 {
+  text-align:center;
+  }

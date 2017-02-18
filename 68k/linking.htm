@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TI-89 / TI-92p / V200 Linking by GregD - GForce Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="ROBOTS" content="ALL" />
+<link rel="stylesheet" type="text/css" href="../templates/GForce_Calc/style.css" />
+
+</head>
+<body leftmargin="0" topmargin="0" rightmargin="0" bgcolor="black" text="#008000" vlink="#008000" link="#008000" alink="#008000">
+<table width="100%" border="0" bordercolor="black" cellpadding="5" cellspacing="0">
+  <tr>
+    <td height="50" valign="middle" colspan="6" align="left">
+      <center>
+        <a href="../index.html"><img src="../templates/GForce_Calc/logo.gif" alt="GForce Programming" width="508" height="43" border="0"/></a>
+      </center>
+    </td>
+  </tr>
+  <table border="1" bordercolor="gray" align="center" width="100%">
+    <tr align="center" bgcolor="black" bordercolor="gray">
+      <td><a class="menu" href="../index.html">&nbsp;&nbsp;Home&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="index.html">&nbsp;&nbsp;Greg's 68k Programming Reference&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="http://www.ticalc.org/archives/files/authors/33/3317.html">&nbsp;&nbsp;ticalc.org Author Profile&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="http://www.detachedsolutions.com/">&nbsp;&nbsp;Detached Solutions&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="../old_news.htm">&nbsp;&nbsp;Really Old News&nbsp;&nbsp;</a></td>
+    </tr>
+  </table>
+</table>
+<br />
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <table width="100%" border="0">
+        <tr>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+          <td width="*" valign="top"> <h1>TI-89 / TI-92p / V200 Linking by GregD</h1>
+
+<b>Purpose of This Document:</b><br>&nbsp;&nbsp;&nbsp;
+There seems to be some confusion about linking and the 68k based calculators. This document examines the problem of creating a link between two calculators for the purpose of a multiplayer game.
+
+<p><b>Requirements:</b><br>&nbsp;&nbsp;&nbsp;
+To make full use of this paper, I recommend the latest version of TIGCC (<a href="http://tigcc.ticalc.org">http://tigcc.ticalc.org</a>) My examples have been compiled and tested using TIGCC v0.94 Beta 19. Most of the linking code that is found on this webpage can also be found in a compile time library that I am developing for TIGCC called extralib. This code works with VTI virtual links, and between my TI-89 HW1, and TI-92 Plus HW2 calculators.
+
+<p><b>On The Number of Players:</b><br>&nbsp;&nbsp;&nbsp;
+When creating linking routines, one of the most common mistakes I see is trying to determine which player is number one, and which player is the second player. Often, it is not necessary to know to know which calculator is player one, and which is player two. 
+<p>&nbsp;&nbsp;&nbsp;
+Take the game of Tetris. There is no need to know which player is the first player, and which is the second player. It can easily be assumed that the data received is from the other player, and handled as such. That is to say that each calculator acts as it is player #1, and stores the information coming from the other calculator as player #2.  In this way, each calculator thinks it is player #1 and the other calculator is player #2. Notice that in a game of tetris, map position of the player does not need to be accounted for.
+
+<p><big>The CreateLink and CreateLink_ex routines have been giving me some trouble... they are based off of this routine which seems to work well (it is from the Insane Game of which I am the author.) For now, I recommend using this routine in place of the other routines.</big> If you have any ideas on why the CreateLink and CreateLink_ex functions occasionally fail on real calculators (it works with vti virtual links), please email me
+<pre>
+short CreateLink_ex2(void)
+{
+	char s=LINK_PLAYER_ONE;
+	char r;
+  
+	OSLinkOpen();
+	transmit(&s,1);
+	
+	for(;;)
+	{
+		if(receive(&r,1))
+		{
+		
+			if(r==LINK_PLAYER_ONE)
+			{
+				s=LINK_PLAYER_TWO;
+				transmit(&s,1);
+				return LINK_PLAYER_ONE;	//player 1
+			}
+			else if(r==LINK_PLAYER_TWO)
+			{
+				return LINK_PLAYER_TWO;	//player 2
+			}
+			else
+			{
+				s=LINK_PLAYER_ONE;
+				transmit(&s,1);
+			}
+		}
+		
+		if(OSCheckBreak())
+		{
+			OSClearBreak();
+			break;
+		}
+		
+	}
+	
+	OSLinkClose();
+	return LINK_FAILURE;	//LinkError
+}
+</pre>
+<p><b>Creating The Initial Connection:</b><br>&nbsp;&nbsp;&nbsp;
+I am assuming that you want to establish a connection between two calculators, and that you are NOT concerned about giving each calculator a unique identifier (ie player1, player2).
+<p>
+<pre>
+enum { LINK_FAILURE, LINK_CREATE, LINK_CONNECTED, LINK_PLAYER_ONE, LINK_PLAYER_TWO };
+
+short CreateLink(void)
+{
+	UCHAR link;	//the numerical value of link is not important
+
+	OSLinkOpen();
+	LIO_SendData(&link,1);
+	
+	if(LIO_RecvData(&link,1,0))
+	{
+		OSLinkReset();
+		return LINK_FAILURE;
+	}
+	else
+	{
+		LIO_SendData(&link,1);
+	}
+	
+	while(!LIO_RecvData(&link,1,10));//the delay is important!
+	
+	return LINK_CONNECTED;
+}
+</pre>
+
+<p>&nbsp;&nbsp;&nbsp;
+In order to understand this code, picture it running on two calculators. One calculator executes this code first, and ends up waiting for data. The second calculator executes the code, and sends the other calculator into the second LIO_SendData call. The second call to LIO_SendData signals that the two calculators are linked, and the program proceeds to the while loop. The while loop is important; one calculator will receive one extra byte which needs to be removed from the link queue. BUT, this byte may not be in the queue immediately, so we delay for a short time before assuming that the extra byte was not sent to the calculator executing the loop waiting for said byte.
+
+<p>&nbsp;&nbsp;&nbsp;
+If you need to determine which calculator is number one, and which is number two, a small modification to the above code helps:
+<pre>
+short CreateLink_ex(void)
+{
+	UCHAR link;	//the numerical value of link is not important
+	BOOL player_one=FALSE;
+
+	OSLinkOpen();
+	LIO_SendData(&link,1);
+	
+	if(LIO_RecvData(&link,1,0))
+	{
+		OSLinkReset();
+		return LINK_FAILURE;
+	}
+	else
+	{
+		LIO_SendData(&link,1);
+	}
+	
+	while(!LIO_RecvData(&link,1,10))//the delay is important!
+		player_one=TRUE;
+
+	return player_one?LINK_PLAYER_ONE:LINK_PLAYER_TWO;
+}
+</pre>
+<p>&nbsp;&nbsp;&nbsp;
+Most often, it is advantageous to determine which calculator is player one, and which is player two to provide a client server model. It is also helpful to use this approach when the two players need to start at a specific position on a map -- avoiding the problem of both players becomming located at the same map location.
+
+
+
+            <p align="center"> <font size="-1" color="red">Copyright &copy; 2000 - <script>document.write(new Date().getFullYear());</script>  by Greg D. All Rights Reserved.</font></p>
+          </td>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+          <td valign="top" align="right" width="200"> <table width="100%" bgcolor="BLACK" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="1" bgcolor="black" bordercolordark="BLACK" bordercolorlight="BLACK" cellspacing="0" cellpadding="2">
+        <tr bgcolor="black" bordercolordark="#333333" bordercolorlight="#333333">
+          <td background="../templates/GForce_Calc/img.jpg"><b>
+            <center>
+              <font color="Gold">External Links</font>
+            </center>
+            </b> </td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><a href="http://www.detachedsolutions.com">Detached Solutions</a><br>
+<a href="http://www.technoplaza.net/assembly/">Techno-Plaza ASM Lessons</a><br>
+<a href="http://tigcc.ticalc.org">TIGCC Cross Compiler</a><br>
+<a href="http://www.ticalc.org/">www.ticalc.org</a><br>
+<a href="http://www.calc.org/">www.calc.org</a><br>
+</td>
+        </tr>
+      </table>
+  </tr>
+</table>
+<br>
+<br><center><img src="../images/default/newlogo.gif" alt="GForce Programming"/></center><br> </td>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title> CPU  - GForce Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="ROBOTS" content="ALL" />
+<link rel="stylesheet" type="text/css" href="../templates/GForce_Calc/style.css" />
+
+</head>
+<body leftmargin="0" topmargin="0" rightmargin="0" bgcolor="black" text="#008000" vlink="#008000" link="#008000" alink="#008000">
+<table width="100%" border="0" bordercolor="black" cellpadding="5" cellspacing="0">
+  <tr>
+    <td height="50" valign="middle" colspan="6" align="left">
+      <center>
+        <a href="../index.html"><img src="../templates/GForce_Calc/logo.gif" alt="GForce Programming" width="508" height="43" border="0"/></a>
+      </center>
+    </td>
+  </tr>
+  <table border="1" bordercolor="gray" align="center" width="100%">
+    <tr align="center" bgcolor="black" bordercolor="gray">
+      <td><a class="menu" href="../index.html">&nbsp;&nbsp;Home&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="index.html">&nbsp;&nbsp;Greg's 68k Programming Reference&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="http://www.ticalc.org/archives/files/authors/33/3317.html">&nbsp;&nbsp;ticalc.org Author Profile&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="http://www.detachedsolutions.com/">&nbsp;&nbsp;Detached Solutions&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="../old_news.htm">&nbsp;&nbsp;Really Old News&nbsp;&nbsp;</a></td>
+    </tr>
+  </table>
+</table>
+<br />
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <table width="100%" border="0">
+        <tr>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+          <td width="*" valign="top"> <!-- CPU -->
+<h1 align="center"><font size="4">
+
+<b>The 68k CPU</b></font></h1>
+
+<h3><a name="About">About</a></h3>
+
+<p>The TI-89 and TI-92 plus use a 10mhz (12mhz on HW2 calculators) Motorola 680000
+processor.</p>
+
+<h3><strong>Registers:</strong></h3>
+
+<p>The M68k processor contains eight <a href="cpu.htm#Data Registers">Data Registers</a>, eight <a
+href="cpu.htm#Address Registers">Address Registers</a>, a Program Counter (PC), and a <a
+href="cpu.htm#Status Register">Status Register</a> (SR)</p>
+
+<h4 align="left"><a name="Data Registers">Data Registers</a></h4>
+
+<p>There are eight data registers; D0-D7. Each register can contain up to 32 bytes. The
+least significant bit is addressed as bit zero; the most significant bit is addressed as
+bit 31. When using data registers, only the appropriate portion is changed; the high bits
+are neither used nor changed.</p>
+
+<h4 align="left"><a name="Address Registers">Address Registers</a></h4>
+
+<p>There are eight address registers; A0-A7. Each register can contain up to 32 bits. The
+least significant bit is addressed as bit zero; the most significant bit is addressed as
+bit 31. Address registers do not support byte size operands. When using address registers,
+only word and long-word opperands are supported. When moving address or data to an address
+register, the whole register is affected. When working with words, they are sign extended
+to 32 bits. Register A7 is treated differently than the rest. It functions as the stack
+pointer. Often, it is refered to as SP. While any address register could function as
+SP, it is best to use A7 under normal conditions.</p>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="113%" colspan="16"><h4 align="center"><strong>The <a name="Status Register">Status
+    Register</a> (SR)</strong></h4>
+    </td>
+  </tr>
+  <tr>
+    <td width="58%" colspan="8"><p align="center"><strong>System Byte</strong></td>
+    <td width="55%" colspan="8"><p align="center"><strong>User Byte</strong></td>
+  </tr>
+  <tr>
+    <td width="7%" align="center">15</td>
+    <td width="3%" align="center">14</td>
+    <td width="12%" align="center">13</td>
+    <td width="4%" align="center">12</td>
+    <td width="4%" align="center">11</td>
+    <td width="6%" align="center">10</td>
+    <td width="7%" align="center">9</td>
+    <td width="7%" align="center">8</td>
+    <td width="3%" align="center">7</td>
+    <td width="3%" align="center">6</td>
+    <td width="3%" align="center">5</td>
+    <td width="8%" align="center">4</td>
+    <td width="10%" align="center">3</td>
+    <td width="7%" align="center">2</td>
+    <td width="9%" align="center">1</td>
+    <td width="7%" align="center">0</td>
+  </tr>
+  <tr>
+    <td width="7%" align="center">Trace Bit</td>
+    <td width="3%" align="center">&nbsp;</td>
+    <td width="12%" align="center">Supervisor Bit</td>
+    <td width="4%" align="center">&nbsp;</td>
+    <td width="4%" align="center">&nbsp;</td>
+    <td width="23%" colspan="3" align="center"><p align="center"><a
+    href="exceptions.htm#Interrupt Mask Settings">Interrupt mask</a></td>
+    <td width="3%" align="center">&nbsp;</td>
+    <td width="3%" align="center">&nbsp;</td>
+    <td width="3%" align="center">&nbsp;</td>
+    <td width="8%" align="center"><strong>X</strong> (Extend)</td>
+    <td width="9%" align="center"><strong>N</strong> (Negative)</td>
+    <td width="6%" align="center"><strong>Z</strong> (Zero)</td>
+    <td width="8%" align="center"><strong>V</strong> (Overflow)</td>
+    <td width="7%" align="center"><strong>C</strong> (Carry)</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h3><a name="Operating Modes"><font size="4"><b>Operating Modes</b></font></a></h3>
+
+<p><font size="4"><b><a name="Supervisor Mode"></a></b></font>The microprocessor executes
+instructions in one of two modes: user mode or supervisor mode. The user mode provides the
+execution environment for the majority of application programs. The supervisor mode, which
+allows some additional instructions and privileges, is used by the operating system and
+other system software.</p>
+
+<h4><a name="Supervisor Mode"><font size="4"><b>Supervisor Mode</b></font></a></h4>
+
+<p>The supervisor mode has the higher level of privilege. The mode of the processor is
+determined by the S bit of the status register; if the S bit is set, the processor is in
+the supervisor mode. All instructions can be executed in the supervisor mode. The bus
+cycles generated by instructions executed in the supervisor mode are classified as
+supervisor references. While the processor is in the supervisor mode, those instructions
+that use either the system stack pointer implicitly or address register seven explicitly
+access the SSP.</p>
+<h4><font size="4">
+
+<b><a name="User Mode">User Mode</a></b></font></h4>
+
+<p>The user mode has the lower level of privilege. If the S bit of the status register is
+clear, the processor is executing instructions in the user mode. Most instructions execute
+identically in either mode. However, some instructions having important system effects are
+designated privileged. For example, user programs are not permitted to execute the STOP
+instruction or the RESET instruction. To ensure that a user program cannot enter the
+supervisor mode except in a controlled manner, the instructions that modify the entire
+status register are privileged. To aid in debugging systems software, the move to user
+stack pointer (MOVE to USP) and move from user stack pointer (MOVE from USP) instructions
+are privileged.</p>
+
+            <p align="center"> <font size="-1" color="red">Copyright &copy; 2000 - <script>document.write(new Date().getFullYear());</script>  by Greg D. All Rights Reserved.</font></p>
+          </td>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+          <td valign="top" align="right" width="200"> <table width="100%" bgcolor="BLACK" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="1" bgcolor="black" bordercolordark="BLACK" bordercolorlight="BLACK" cellspacing="0" cellpadding="2">
+        <tr bgcolor="black" bordercolordark="#333333" bordercolorlight="#333333">
+          <td background="../templates/GForce_Calc/img.jpg"><b>
+            <center>
+              <font color="Gold">External Links</font>
+            </center>
+            </b> </td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><a href="http://www.detachedsolutions.com">Detached Solutions</a><br>
+<a href="http://www.technoplaza.net/assembly/">Techno-Plaza ASM Lessons</a><br>
+<a href="http://tigcc.ticalc.org">TIGCC Cross Compiler</a><br>
+<a href="http://www.ticalc.org/">www.ticalc.org</a><br>
+<a href="http://www.calc.org/">www.calc.org</a><br>
+</td>
+        </tr>
+      </table>
+  </tr>
+</table>
+<br>
+<br><center><img src="../images/default/newlogo.gif" alt="GForce Programming"/></center><br> </td>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

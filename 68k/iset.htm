@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Instruction Set Summary - GForce Programming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="ROBOTS" content="ALL" />
+<link rel="stylesheet" type="text/css" href="../templates/GForce_Calc/style.css" />
+
+</head>
+<body leftmargin="0" topmargin="0" rightmargin="0" bgcolor="black" text="#008000" vlink="#008000" link="#008000" alink="#008000">
+<table width="100%" border="0" bordercolor="black" cellpadding="5" cellspacing="0">
+  <tr>
+    <td height="50" valign="middle" colspan="6" align="left">
+      <center>
+        <a href="../index.html"><img src="../templates/GForce_Calc/logo.gif" alt="GForce Programming" width="508" height="43" border="0"/></a>
+      </center>
+    </td>
+  </tr>
+  <table border="1" bordercolor="gray" align="center" width="100%">
+    <tr align="center" bgcolor="black" bordercolor="gray">
+      <td><a class="menu" href="../index.html">&nbsp;&nbsp;Home&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="index.html">&nbsp;&nbsp;Greg's 68k Programming Reference&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="http://www.ticalc.org/archives/files/authors/33/3317.html">&nbsp;&nbsp;ticalc.org Author Profile&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="http://www.detachedsolutions.com/">&nbsp;&nbsp;Detached Solutions&nbsp;&nbsp;</a></td>
+      <td><a class="menu" href="../old_news.htm">&nbsp;&nbsp;Really Old News&nbsp;&nbsp;</a></td>
+    </tr>
+  </table>
+</table>
+<br />
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <table width="100%" border="0">
+        <tr>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+          <td width="*" valign="top"> <!--Instruction Set Summary-->
+
+<p><b>&nbsp;</b></p><h1 align="center">
+
+<b>MC68000 Instruction Set</b></h1>
+
+<table border="1" width="100%" height="287">
+  <tr>
+    <td width="10%" height="30"><a href="iset.htm#ABCD">ABCD</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ASL">ASL</a></td>
+    <td width="11%" height="30"><a href="iset.htm#CLR">CLR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#EXG">EXG</a></td>
+    <td width="11%" height="30"><a href="iset.htm#MOVEA">MOVEA</a></td>
+    <td width="11%" height="30"><a href="iset.htm#NBCD">NBCD</a></td>
+    <td width="11%" height="30"><a href="iset.htm#RESET">RESET</a></td>
+    <td width="11%" height="30"><a href="iset.htm#STOP">STOP</a></td>
+    <td width="11%" height="30"><a href="iset.htm#TST">TST</a></td>
+  </tr>
+  <tr>
+    <td width="10%" height="30"><a href="iset.htm#ADD">ADD</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ASR">ASR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#CMP">CMP</a></td>
+    <td width="11%" height="30"><a href="iset.htm#EXT">EXT</a></td>
+    <td width="11%" height="30"><a href="iset.htm#MOVE to CCR">MOVE to CCR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#NEG">NEG</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ROL">ROL</a></td>
+    <td width="11%" height="30"><a href="iset.htm#SUB">SUB</a></td>
+    <td width="11%" height="30"><a href="iset.htm#UNLK">UNLK</a></td>
+  </tr>
+  <tr>
+    <td width="10%" height="30"><a href="iset.htm#ADDA">ADDA</a></td>
+    <td width="11%" height="30"><a href="iset.htm#Bcc">Bcc</a></td>
+    <td width="11%" height="30"><a href="iset.htm#CMPA">CMPA</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ILLEGAL">ILLEGAL</a></td>
+    <td width="11%" height="30"><a href="iset.htm#MOVE from SR">MOVE from SR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#NEGX">NEGX</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ROR">ROR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#SUBA">SUBA</a></td>
+    <td width="11%" height="30"></td>
+  </tr>
+  <tr>
+    <td width="10%" height="30"><a href="iset.htm#ADDI">ADDI</a></td>
+    <td width="11%" height="30"><a href="iset.htm#BCHG">BCHG</a></td>
+    <td width="11%" height="30"><a href="iset.htm#CMPI">CMPI</a></td>
+    <td width="11%" height="30"><a href="iset.htm#JMP">JMP</a></td>
+    <td width="11%" height="30"><a href="iset.htm#MOVE to SR&nbsp;">MOVE to SR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#NOP">NOP</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ROXL">ROXL</a></td>
+    <td width="11%" height="30"><a href="iset.htm#SUBI">SUBI</a></td>
+    <td width="11%" height="30"></td>
+  </tr>
+  <tr>
+    <td width="10%" height="30"><a href="iset.htm#ADDQ">ADDQ</a></td>
+    <td width="11%" height="30"><a href="iset.htm#BCLR">BCLR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#CMPM">CMPM</a></td>
+    <td width="11%" height="30"><a href="iset.htm#JSR">JSR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#MOVE USP">MOVE USP</a></td>
+    <td width="11%" height="30"><a href="iset.htm#NOT">NOT</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ROXR">ROXR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#SUBQ">SUBQ</a></td>
+    <td width="11%" height="30"></td>
+  </tr>
+  <tr>
+    <td width="10%" height="30"><a href="iset.htm#ADDX">ADDX</a></td>
+    <td width="11%" height="30"><a href="iset.htm#BRA">BRA</a></td>
+    <td width="11%" height="30"><a href="iset.htm#DBcc">DBcc</a></td>
+    <td width="11%" height="30"><a href="iset.htm#LEA">LEA</a></td>
+    <td width="11%" height="30"><a href="iset.htm#MOVEM">MOVEM</a></td>
+    <td width="11%" height="30"><a href="iset.htm#OR">OR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#RTE">RTE</a></td>
+    <td width="11%" height="30"><a href="iset.htm#SUBX">SUBX</a></td>
+    <td width="11%" height="30"></td>
+  </tr>
+  <tr>
+    <td width="10%" height="30"><a href="iset.htm#AND">AND</a></td>
+    <td width="11%" height="30"><a href="iset.htm#BSET">BSET</a></td>
+    <td width="11%" height="30"><a href="iset.htm#DIVS">DIVS</a></td>
+    <td width="11%" height="30"><a href="iset.htm#LINK">LINK</a></td>
+    <td width="11%" height="30"><a href="iset.htm#MOVEP">MOVEP</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ORI">ORI</a></td>
+    <td width="11%" height="30"><a href="iset.htm#RTR">RTR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#SWAP">SWAP</a></td>
+    <td width="11%" height="30"></td>
+  </tr>
+  <tr>
+    <td width="10%" height="30"><a href="iset.htm#ANDI">ANDI</a></td>
+    <td width="11%" height="30"><a href="iset.htm#BSR">BSR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#DIVU">DIVU</a></td>
+    <td width="11%" height="30"><a href="iset.htm#LSL">LSL</a></td>
+    <td width="11%" height="30"><a href="iset.htm#MOVEQ">MOVEQ</a></td>
+    <td width="11%" height="30"><a href="iset.htm#ORI to CCR">ORI to CCR</a></td>
+    <td width="11%" height="30"><a href="iset.htm#RTS">RTS</a></td>
+    <td width="11%" height="30"><a href="iset.htm#TAS">TAS</a></td>
+    <td width="11%" height="30"></td>
+  </tr>
+  <tr>
+    <td width="10%" height="31"><a href="iset.htm#ANDI to CCR">ANDI to CCR</a></td>
+    <td width="11%" height="31"><a href="iset.htm#BTST">BTST</a></td>
+    <td width="11%" height="31"><a href="iset.htm#EOR">EOR</a></td>
+    <td width="11%" height="31"><a href="iset.htm#LSR">LSR</a></td>
+    <td width="11%" height="31"><a href="iset.htm#MULS">MULS</a></td>
+    <td width="11%" height="31"><a href="iset.htm#ORI to SR">ORI to SR</a></td>
+    <td width="11%" height="31"><a href="iset.htm#SBCD">SBCD</a></td>
+    <td width="11%" height="31"><a href="iset.htm#TRAP">TRAP</a></td>
+    <td width="11%" height="31"></td>
+  </tr>
+  <tr>
+    <td width="10%" height="31"><a href="iset.htm#ANDI to SR">ANDI to SR</a></td>
+    <td width="11%" height="31"><a href="iset.htm#CHK">CHK</a></td>
+    <td width="11%" height="31"><a href="iset.htm#EORI">EORI</a></td>
+    <td width="11%" height="31"><a href="iset.htm#MOVE">MOVE</a></td>
+    <td width="11%" height="31"><a href="iset.htm#MULU">MULU</a></td>
+    <td width="11%" height="31"><a href="iset.htm#PEA">PEA</a></td>
+    <td width="11%" height="31"><a href="iset.htm#Scc">Scc</a></td>
+    <td width="11%" height="31"><a href="iset.htm#TRAPV">TRAPV</a></td>
+    <td width="11%" height="31"></td>
+  </tr>
+</table>
+
+<h3><a name="ABCD">ABCD</a>&nbsp;&nbsp;&nbsp; (Add Decimal with Extend)</h3>
+
+<h3><a name="ADD"><strong>ADD</strong></a>&nbsp;&nbsp;&nbsp; (Add)</h3>
+
+<h3><a name="ADDA">ADDA</a>&nbsp;&nbsp;&nbsp; (Add Address)</h3>
+
+<h3><a name="ADDI">ADDI</a>&nbsp;&nbsp;&nbsp; (Add Immediate)</h3>
+
+<h3><a name="ADDQ">ADDQ</a>&nbsp;&nbsp;&nbsp; (Add Quick)</h3>
+
+<h3><a name="ADDX">ADDX</a>&nbsp;&nbsp;&nbsp; (Add with Extend)</h3>
+
+<h3><a name="AND">AND</a>&nbsp;&nbsp;&nbsp; (Logical AND)</h3>
+
+<h3><a name="ANDI">ANDI</a>&nbsp;&nbsp;&nbsp; (Logical AND Immediate)</h3>
+
+<h3><a name="ANDI to CCR">ANDI to CCR</a>&nbsp;&nbsp;&nbsp; (AND Immediate to Condition
+Code Register)</h3>
+
+<h3><a name="ANDI to SR">ANDI to SR</a>&nbsp;&nbsp;&nbsp; (AND Immediate to Status
+Register)</h3>
+
+<h3><a name="ASL">ASL</a>&nbsp;&nbsp;&nbsp; (Arithmetic Shift Left)</h3>
+
+<h3><a name="ASR">ASR</a>&nbsp;&nbsp;&nbsp; (Arithmetic Shift Right)</h3>
+
+<h3><a name="Bcc">Bcc</a>&nbsp;&nbsp;&nbsp; (Branch Conditionally)</h3>
+
+<h3><a name="BCHG">BCHG</a>&nbsp;&nbsp;&nbsp; (Test Bit and Change)</h3>
+
+<h3><a name="BCLR">BCLR</a>&nbsp;&nbsp;&nbsp; (Test Bit and Clear)</h3>
+
+<h3><a name="BRA">BRA</a>&nbsp;&nbsp;&nbsp; (Branch)</h3>
+
+<h3><a name="BSET">BSET</a>&nbsp;&nbsp;&nbsp; (Test Bit and Set)</h3>
+
+<h3><a name="BSR">BSR</a>&nbsp;&nbsp;&nbsp; (Branch to Subroutine)</h3>
+
+<h3><a name="BTST">BTST</a>&nbsp;&nbsp;&nbsp; (Test Bit)</h3>
+
+<h3><a name="CHK">CHK</a>&nbsp;&nbsp;&nbsp; (Check Register Against Bound)</h3>
+
+<h3><a name="CLR">CLR</a>&nbsp;&nbsp;&nbsp; (Clear)</h3>
+
+<h3><a name="CMP">CMP</a>&nbsp;&nbsp;&nbsp; (Compare)</h3>
+
+<h3><a name="CMPA">CMPA</a>&nbsp;&nbsp;&nbsp; (Compare Address)</h3>
+
+<h3><a name="CMPI">CMPI</a>&nbsp;&nbsp;&nbsp; (Compare Immediate)</h3>
+
+<h3><a name="CMPM">CMPM</a>&nbsp;&nbsp;&nbsp; (Compare Memory to Memory)</h3>
+
+<h3><a name="DBcc">DBcc</a>&nbsp;&nbsp;&nbsp; (Test Condition, Decrement, and Branch)</h3>
+
+<h3><a name="DIVS">DIVS</a>&nbsp;&nbsp;&nbsp; (Signed Divide)</h3>
+
+<h3><a name="DIVU">DIVU</a>&nbsp;&nbsp;&nbsp; (Unsigned Divide)</h3>
+
+<h3><a name="EOR">EOR</a>&nbsp;&nbsp;&nbsp; (Logical Exclusive-OR)</h3>
+
+<h3><a name="EORI">EORI</a>&nbsp;&nbsp;&nbsp; (Logical Exclusive-OR Immediate)</h3>
+
+<h3><a name="EORI to CCR&nbsp;">EORI to CCR&nbsp;</a>&nbsp;&nbsp; (Exclusive-OR Immediate
+to Condition Code Register)</h3>
+
+<h3><a name="EORI to SR">EORI to SR</a>&nbsp;&nbsp;&nbsp; (Exclusive-OR Immediate to
+Status Register)</h3>
+
+<h3><a name="EXG">EXG</a>&nbsp;&nbsp;&nbsp; (Exchange Registers)</h3>
+
+<h3><a name="EXT">EXT</a>&nbsp;&nbsp;&nbsp; (Sign Extend)</h3>
+
+<h3><a name="ILLEGAL">ILLEGAL</a>&nbsp;&nbsp;&nbsp; (Take Illegal Instruction Trap)</h3>
+
+<h3><a name="JMP">JMP</a>&nbsp;&nbsp;&nbsp; (Jump)</h3>
+
+<h3><a name="JSR">JSR</a>&nbsp;&nbsp;&nbsp; (Jump to Subroutine)</h3>
+
+<h3><a name="LEA">LEA</a>&nbsp;&nbsp;&nbsp; (Load Effective Address)</h3>
+
+<h3><a name="LINK">LINK</a>&nbsp;&nbsp;&nbsp; (Link and Allocate)</h3>
+
+<h3><a name="LSL">LSL</a>&nbsp;&nbsp;&nbsp; (Logical Shift Left)</h3>
+
+<h3><a name="LSR">LSR</a>&nbsp;&nbsp;&nbsp; (Logical Shift Right)</h3>
+
+<h3><a name="MOVE">MOVE</a>&nbsp;&nbsp;&nbsp; (Move)</h3>
+
+<h3><a name="MOVEA">MOVEA</a>&nbsp;&nbsp;&nbsp; (Move Address)</h3>
+
+<h3><a name="MOVE to CCR">MOVE to CCR</a>&nbsp;&nbsp;&nbsp; (Move to Condition Code
+Register)</h3>
+
+<h3><a name="MOVE from SR">MOVE from SR</a>&nbsp;&nbsp;&nbsp; (Move from Status Register)</h3>
+
+<h3><a name="MOVE to SR&nbsp;">MOVE to SR&nbsp;</a>&nbsp;&nbsp; (Move to Status Register)</h3>
+
+<h3><a name="MOVE USP">MOVE USP</a>&nbsp;&nbsp;&nbsp; (Move User Stack Pointer)</h3>
+
+<h3><a name="MOVEM">MOVEM</a>&nbsp;&nbsp;&nbsp; (Move Multiple Registers)</h3>
+
+<h3><a name="MOVEP">MOVEP</a>&nbsp;&nbsp;&nbsp; (Move Peripheral)</h3>
+
+<h3><a name="MOVEQ">MOVEQ</a>&nbsp;&nbsp;&nbsp; (Move Quick)</h3>
+
+<h3><a name="MULS">MULS</a>&nbsp;&nbsp;&nbsp; (Signed Multiply)</h3>
+
+<h3><a name="MULU">MULU</a>&nbsp;&nbsp;&nbsp; (Unsigned Multiply)</h3>
+
+<h3><a name="NBCD">NBCD</a>&nbsp;&nbsp;&nbsp; (Negate Decimal with Extend)</h3>
+
+<h3><a name="NEG">NEG</a>&nbsp;&nbsp;&nbsp; (Negate)</h3>
+
+<h3><a name="NEGX">NEGX</a>&nbsp;&nbsp;&nbsp; (Negate with Extend)</h3>
+
+<h3><a name="NOP">NOP</a>&nbsp;&nbsp;&nbsp; (No Operation)</h3>
+
+<h3><a name="NOT">NOT</a>&nbsp;&nbsp;&nbsp; (Logical Complement)</h3>
+
+<h3><a name="OR">OR</a>&nbsp;&nbsp;&nbsp; (Logical Inclusive-OR)</h3>
+
+<h3><a name="ORI">ORI</a>&nbsp;&nbsp;&nbsp; (Logical Inclusive-OR Immediate)</h3>
+
+<h3><a name="ORI to CCR">ORI to CCR</a>&nbsp;&nbsp;&nbsp; (Inclusive-OR Immediate to
+Condition Code Register)</h3>
+
+<h3><a name="ORI to SR">ORI to SR</a>&nbsp;&nbsp;&nbsp; (Inclusive-OR Immediate to Status
+Register)</h3>
+
+<h3><a name="PEA">PEA</a>&nbsp;&nbsp;&nbsp; (Push Effective Address)</h3>
+
+<h3><a name="RESET">RESET</a>&nbsp;&nbsp;&nbsp; (Reset External Devices)</h3>
+
+<h3><a name="ROL">ROL</a>&nbsp;&nbsp;&nbsp; (Rotate Left)</h3>
+
+<h3><a name="ROR">ROR</a>&nbsp;&nbsp;&nbsp; (Rotate Right)</h3>
+
+<h3>ROXL&nbsp;&nbsp;&nbsp;&nbsp; (Rotate with Extend Left)</h3>
+
+<h3><a name="ROXR">ROXR</a>&nbsp;&nbsp;&nbsp; (Rotate with Extend Right)</h3>
+
+<h3><a name="RTE">RTE</a>&nbsp;&nbsp;&nbsp; (Return from Exception)</h3>
+
+<h3><a name="RTR">RTR</a>&nbsp;&nbsp;&nbsp; (Return and Restore)</h3>
+
+<h3><a name="RTS">RTS</a>&nbsp;&nbsp;&nbsp; (Return from Subroutine)</h3>
+
+<h3><a name="SBCD">SBCD</a>&nbsp;&nbsp;&nbsp; (Subtract Decimal with Extend)</h3>
+
+<h3><a name="Scc">Scc</a>&nbsp;&nbsp;&nbsp; (Set Conditionally)</h3>
+
+<h3><a name="STOP">STOP</a>&nbsp;&nbsp;&nbsp; (Stop)</h3>
+
+<h3><a name="SUB">SUB</a>&nbsp;&nbsp;&nbsp; (Subtract)</h3>
+
+<h3><a name="SUBA">SUBA</a>&nbsp;&nbsp;&nbsp; (Subtract Address)</h3>
+
+<h3><a name="SUBI">SUBI</a>&nbsp;&nbsp;&nbsp; (Subtract Immediate)</h3>
+
+<h3><a name="SUBQ">SUBQ</a>&nbsp;&nbsp;&nbsp; (Subtract Quick)</h3>
+
+<h3><a name="SUBX">SUBX</a>&nbsp;&nbsp;&nbsp; (Subtract with Extend)</h3>
+
+<h3><a name="SWAP">SWAP</a>&nbsp;&nbsp;&nbsp; (Swap Register Words)</h3>
+
+<h3><a name="TAS">TAS</a>&nbsp;&nbsp;&nbsp; (Test Operand and Set)</h3>
+
+<h3><a name="TRAP">TRAP</a>&nbsp;&nbsp;&nbsp; (Trap)</h3>
+
+<h3><a name="TRAPV">TRAPV</a>&nbsp;&nbsp;&nbsp; (Trap on Overflow)</h3>
+
+<h3><a name="TST">TST</a>&nbsp;&nbsp;&nbsp; (Test Operand)</h3>
+
+<h3><a name="UNLK">UNLK</a>&nbsp;&nbsp;&nbsp; (Unlink) </h3>
+
+
+            <p align="center"> <font size="-1" color="red">Copyright &copy; 2000 - <script>document.write(new Date().getFullYear());</script>  by Greg D. All Rights Reserved.</font></p>
+          </td>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+          <td valign="top" align="right" width="200"> <table width="100%" bgcolor="BLACK" cellpadding="0">
+  <tr>
+    <td>
+      <table width="100%" border="1" bgcolor="black" bordercolordark="BLACK" bordercolorlight="BLACK" cellspacing="0" cellpadding="2">
+        <tr bgcolor="black" bordercolordark="#333333" bordercolorlight="#333333">
+          <td background="../templates/GForce_Calc/img.jpg"><b>
+            <center>
+              <font color="Gold">External Links</font>
+            </center>
+            </b> </td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><a href="http://www.detachedsolutions.com">Detached Solutions</a><br>
+<a href="http://www.technoplaza.net/assembly/">Techno-Plaza ASM Lessons</a><br>
+<a href="http://tigcc.ticalc.org">TIGCC Cross Compiler</a><br>
+<a href="http://www.ticalc.org/">www.ticalc.org</a><br>
+<a href="http://www.calc.org/">www.calc.org</a><br>
+</td>
+        </tr>
+      </table>
+  </tr>
+</table>
+<br>
+<br><center><img src="../images/default/newlogo.gif" alt="GForce Programming"/></center><br> </td>
+          <td width="5">
+            <!-- spacer column -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
